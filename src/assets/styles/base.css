@@ -1,7 +1,10 @@
 body {
   display: flex;
   flex-direction: column;
+  background-color: var(--color-body);
 
+  font-family: Poppins, sans-serif;
+  font-size: 18px;
   color: var(--color-primaty);
 }
 
@@ -21,8 +24,19 @@ svg * {
 
 a {
   color: inherit;
+  text-decoration: none;
 }
 
 a:hover {
   color: var(--color-accent);
+}
+
+.logo {
+  .router-link-active {
+    opacity: 1;
+  }
+}
+
+.router-link-active {
+  opacity: 0.4;
 }

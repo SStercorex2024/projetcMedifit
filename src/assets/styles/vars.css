@@ -1,15 +1,20 @@
 :root {
   --color-primaty: #503217;
-  --color-body: #8F7D6A;
+  --color-body: #F2F2F2;
   --color-border: #E8E6DE;
   --color-bg-second: #E2DFCF;
   --color-inner-bg: #EBE9E0;
   --color-accent: #D3744A;
+  --color-text-muted: #8F7D6A;
   --color-text: #160D05;
+
+  --fonts-second: 'Montserrat', san-serif;
 
   --transition-duration: 0.4s;
   --transition-duration-large: 0.6s;
 
+  --border-radius-m: 6px;
+  --border-radius-l: 10px;
 
   --container-width: 1268px;
   --container-padding-x: 16px;

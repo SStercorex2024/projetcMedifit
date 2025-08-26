@@ -1,6 +1,6 @@
 <script setup>
-import HeaderComponent from '@/components/header.vue'
-import FooterComponent from '@/components/footer.vue'
+import HeaderComponentComponent from '@/components/headerComponent.vue'
+import FooterComponentComponent from '@/components/footerComponent.vue'
 
 defineOptions({
   name: 'CustomerLayout'
@@ -8,11 +8,11 @@ defineOptions({
 </script>
 
 <template>
-  <HeaderComponent/>
+  <HeaderComponentComponent/>
   <main>
     <slot/>
   </main>
-  <FooterComponent/>
+  <FooterComponentComponent/>
 </template>
 
 <style scoped>

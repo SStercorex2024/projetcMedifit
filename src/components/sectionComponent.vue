@@ -1,6 +1,6 @@
 <script setup>
 defineOptions({
-  name: 'section'
+  name: 'SectionComponent'
 })
 
 const props = defineProps({
