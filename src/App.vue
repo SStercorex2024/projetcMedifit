@@ -1,5 +1,10 @@
 <script setup>
 import CustomerLayout from "@/layouts/CustomerLayout.vue";
+import {provide, reactive} from "vue";
+
+const activeGoods = reactive([])
+
+provide('active-goods', activeGoods)
 </script>
 
 <template>
@@ -9,5 +14,4 @@ import CustomerLayout from "@/layouts/CustomerLayout.vue";
 </template>
 
 <style scoped>
-
 </style>

@@ -1,0 +1,85 @@
+{
+  "goods_one": [
+    {
+      "id": "1",
+      "icon-name": "1",
+      "title": "Microscope",
+      "price": "$45.00 USD"
+    },
+    {
+      "id": "2",
+      "icon-name": "2",
+      "title": "Pulse oximeter",
+      "price": "$19.00 USD"
+    },
+    {
+      "id": "3",
+      "discount": true,
+      "icon-name": "3",
+      "title": "Vitamin serum",
+      "price": "$20.00 USD"
+    },
+    {
+      "id": "4",
+      "discount": true,
+      "icon-name": "4",
+      "title": "High protein",
+      "price": "$50.00 USD"
+    }
+  ],
+  "goods_two": [
+    {
+      "id": "1",
+      "discount": true,
+      "icon-name": "1",
+      "title": "B12 medicine",
+      "price": "$19.00 USD"
+    },
+    {
+      "id": "2",
+      "icon-name": "2",
+      "title": "Tonometer",
+      "price": "$19.00 USD"
+    },
+    {
+      "id": "3",
+      "discount": true,
+      "icon-name": "3",
+      "title": "ECG cardiograph",
+      "price": "$20.00 USD"
+    },
+    {
+      "id": "4",
+      "icon-name": "4",
+      "title": "Blood glucose meter",
+      "price": "$15.00 USD"
+    },
+    {
+      "id": "5",
+      "discount": true,
+      "icon-name": "5",
+      "title": "Lab hand gloves",
+      "price": "$20.00 USD"
+    },
+    {
+      "id": "6",
+      "discount": true,
+      "icon-name": "6",
+      "title": "Stethoscope",
+      "price": "$20.00 USD"
+    },
+    {
+      "id": "7",
+      "icon-name": "7",
+      "title": "Inhaler pressure drop ",
+      "price": "$20.00 USD"
+    },
+    {
+      "id": "8",
+      "icon-name": "8",
+      "title": "Multi vitamin",
+      "price": "$20.00 USD"
+    }
+  ],
+  "goods_active": []
+}

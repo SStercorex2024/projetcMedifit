@@ -92,6 +92,11 @@ button {
   font: inherit;
 }
 
+button {
+  border: none;
+  background-color: transparent;
+}
+
 html {
   /**
     Пригодится в большинстве ситуаций
