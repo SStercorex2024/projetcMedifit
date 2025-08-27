@@ -1,4 +1,6 @@
 <script setup>
+import Banner from "@/pages/home/main/banner.vue";
+
 defineOptions({
   name: 'index'
 })
@@ -6,7 +8,7 @@ defineOptions({
 
 <template>
   <main>
-    HOME
+    <banner/>
   </main>
 </template>
 

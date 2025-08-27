@@ -7,6 +7,7 @@
   --color-accent: #D3744A;
   --color-text-muted: #8F7D6A;
   --color-text: #160D05;
+  --color-white: #F2F2F2;
 
   --fonts-second: 'Montserrat', san-serif;
 
@@ -15,6 +16,8 @@
 
   --border-radius-m: 6px;
   --border-radius-l: 10px;
+
+  --button-height: 48px;
 
   --container-width: 1268px;
   --container-padding-x: 16px;
