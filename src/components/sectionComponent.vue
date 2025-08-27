@@ -37,15 +37,19 @@ const props = defineProps({
                props.isPaddingBottomBig ? 'section-padding-bottom-big'
                                    : 'section-padding-y-regular'
               ]"
+      aria-labelledby="#section-title"
   >
-    <h1 class="visually-hidden">
+    <h1 class="visually-hidden" id="section-title">
       {{ props.titleContent }}
     </h1>
     <div class="container">
-      <div>
-        <h3 v-if="props.isTitle">{{ props.titleContent }}</h3>
+      <div class="section__content">
+        <h3 v-if="props.isTitle" class="section__title">{{
+            props.titleContent
+          }}
+        </h3>
+        <slot/>
       </div>
-      <slot/>
     </div>
   </section>
 </template>
@@ -65,5 +69,27 @@ const props = defineProps({
 
 .section-padding-y-regular {
   padding-block: var(--section-padding-y) calc(var(--section-padding-y) * 2);
+}
+
+.section__content {
+  display: flex;
+  flex-direction: column;
+  row-gap: 60px;
+
+  @media (max-width: 1000px) {
+    row-gap: 20px;
+  }
+}
+
+.section__title {
+  font-size: 48px;
+  text-align: center;
+
+  @media (max-width: 1000px) {
+    font-size: 32px;
+  }
+  @media (max-width: 600px) {
+    font-size: 24px;
+  }
 }
 </style>

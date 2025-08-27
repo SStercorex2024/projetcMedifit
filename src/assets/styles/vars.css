@@ -1,6 +1,6 @@
 :root {
   --color-primaty: #503217;
-  --color-body: #F2F2F2;
+  --color-body: #EEEDE7;
   --color-border: #E8E6DE;
   --color-bg-second: #E2DFCF;
   --color-inner-bg: #EBE9E0;
@@ -19,7 +19,7 @@
 
   --button-height: 48px;
 
-  --container-width: 1268px;
+  --container-width: 1332px;
   --container-padding-x: 16px;
 
   --section-padding-y: 50px;
