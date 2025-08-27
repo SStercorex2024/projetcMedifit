@@ -6,7 +6,7 @@ import Leaf from "@/components/icons/leaf.vue";
 import Hearbreat from "@/components/icons/hearbreat.vue";
 import Vials from "@/components/icons/vials.vue";
 import MedicalPlus from "@/components/icons/medical-plus.vue";
-import CategoryGoodsCards from "@/pages/home/main/category-goods-cards.vue";
+import CategoryGoodsCards from "@/pages/home/main/categoryGoodsCards.vue";
 
 defineOptions({
   name: 'Category'
@@ -18,7 +18,8 @@ defineOptions({
   <section-component
       title-content="Shop by Category"
       :is-title="true"
-      :isPaddingTopBig
+      :isPaddingTopBig="true"
+      :class-section="'category'"
   >
     <div class="category__cards">
       <ul class="category__list">
@@ -148,24 +149,26 @@ defineOptions({
   background-color: var(--color-bg-second);
 }
 
-dl {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  row-gap: 3px;
-}
+.category__cards {
+  dl {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 3px;
+  }
 
-dt {
-  text-wrap: nowrap;
-  font-size: 18px;
-  font-weight: 500;
-}
+  dt {
+    text-wrap: nowrap;
+    font-size: 18px;
+    font-weight: 500;
+  }
 
-dd {
-  margin-left: 0;
-  font-size: 16px;
-  font-family: var(--fonts-second);
+  dd {
+    margin-left: 0;
+    font-size: 16px;
+    font-family: var(--fonts-second);
+  }
 }
 
 @media (max-width: 420px) {

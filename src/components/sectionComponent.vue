@@ -23,6 +23,10 @@ const props = defineProps({
   sectionBgAccent: {
     type: Boolean,
     default: false
+  },
+  classSection: {
+    type: String,
+    required: true
   }
 })
 
@@ -35,11 +39,12 @@ const props = defineProps({
                props.isPaddingTopBig ? 'section-padding-top-big'
                                    : 'section-padding-y-regular',
                props.isPaddingBottomBig ? 'section-padding-bottom-big'
-                                   : 'section-padding-y-regular'
-              ]"
-      aria-labelledby="#section-title"
+                                   : 'section-padding-y-regular',
+               props.classSection,
+               ]"
+      :aria-labelledby="`#section-title-${props.classSection}`"
   >
-    <h1 class="visually-hidden" id="section-title">
+    <h1 class="visually-hidden" :id="`section-title-${props.classSection}`">
       {{ props.titleContent }}
     </h1>
     <div class="container">

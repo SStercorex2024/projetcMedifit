@@ -22,7 +22,7 @@ defineOptions({
               plan.
             </p>
           </div>
-          <router-link class="banner__link" :to="'contact.index'">
+          <router-link class="banner__link" :to="{name:'contact.index'}">
             <location class="banner__icon"/>
             Contact with us
           </router-link>

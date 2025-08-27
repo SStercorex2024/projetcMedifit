@@ -1,8 +1,8 @@
 <script setup>
 import Logo from "@/components/icons/logo.vue";
 import Cart from "@/components/icons/cart.vue";
-import BurgerButton from "@/components/burger-button.vue";
-import {inject, ref} from "vue";
+import BurgerButton from "@/components/burgerButton.vue";
+import {inject, onMounted, ref} from "vue";
 
 defineOptions({
   name: 'HeaderComponent'
@@ -108,6 +108,7 @@ header {
 .menu-list {
   display: flex;
   column-gap: 30px;
+  align-items: center;
 
   @media (max-width: 769px) {
     display: none;
