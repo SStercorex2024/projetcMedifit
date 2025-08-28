@@ -74,7 +74,16 @@ const mobileMenuActive = ref(false)
 
 <style scoped>
 header {
-  background-color: #EEEDE7;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-index-header);
+  background-color: var(--color-body);
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .row {
@@ -130,17 +139,22 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  svg {
+    width: 48px;
+    height: 48px;
+  }
 }
 
 .cart span {
   position: absolute;
   top: -4px;
   right: 0;
-  font-size: 10px;
+  font-size: 16px;
   line-height: 1.5;
   color: var(--color-accent);
-  width: 15px;
-  height: 15px;
+  width: 22px;
+  height: 22px;
   border: 1px solid var(--color-primaty);
   border-radius: 50%;
 }
