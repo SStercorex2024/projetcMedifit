@@ -24,6 +24,8 @@
 
   --section-padding-y: 50px;
 
+  --z-index-icon-health-bg: 10;
+  --z-index-icon-health-extra: 20;
   --z-index-header: 999;
   --z-index-burger-menu: 1000;
   --z-index-burger-button: 1100;

@@ -22,44 +22,54 @@ const addProducts = (product) => {
 </script>
 
 <template>
-  <li
-      class="product__item"
-      v-for="product in products"
-      :key="product.id"
-  >
-    <div
-        :class="[
+  <ul class="product__list">
+    <li
+        class="product__item"
+        v-for="product in products"
+        :key="product.id"
+    >
+      <div
+          :class="[
                 product['is-new'] && 'product--new',
                 product.discount && 'product--discount',
                 'product'
             ]"
-    >
-      <img
-          class="product__img"
-          width="302"
-          :src="`/src/assets/images/goods-one/${product['image-name']}.png`"
-          :alt="product.title"
-      />
-      <button @click="addProducts(product)" class="product__btn">
-        <cart class="product__icon"/>
-        Add to bag
-      </button>
-    </div>
-    <dl class="product__extra">
-      <dt>
-        {{ product.title }}
-      </dt>
-      <dd>
-        ${{ product.price }} USD
-        <p v-if="product['lover-price']">
-          ${{ product['lover-price'] }} USD
-        </p>
-      </dd>
-    </dl>
-  </li>
+      >
+        <img
+            class="product__img"
+            width="302"
+            :src="`/src/assets/images/goods-one/${product['image-name']}.png`"
+            :alt="product.title"
+        />
+        <button @click="addProducts(product)" class="product__btn">
+          <cart class="product__icon"/>
+          Add to bag
+        </button>
+      </div>
+      <dl class="product__extra">
+        <dt>
+          {{ product.title }}
+        </dt>
+        <dd>
+          ${{ product.price }} USD
+          <p v-if="product['lover-price']">
+            ${{ product['lover-price'] }} USD
+          </p>
+        </dd>
+      </dl>
+    </li>
+  </ul>
 </template>
 
 <style scoped>
+.product__list {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 30px;
+}
+
 .product__item {
   position: relative;
   width: 302px;
@@ -74,11 +84,6 @@ const addProducts = (product) => {
   pointer-events: initial;
   opacity: 1;
 }
-
-.health-product {
-  width: 100%;
-}
-
 
 .product__img {
   border-radius: var(--border-radius-l);
@@ -177,6 +182,12 @@ dd {
   }
 }
 
+@media (max-width: 1360px) {
+  .product__list {
+    flex-wrap: wrap;
+    row-gap: 20px;
+  }
+}
 
 @media (max-width: 918px) {
   .product__btn {
