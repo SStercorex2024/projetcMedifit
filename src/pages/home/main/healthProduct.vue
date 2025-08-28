@@ -12,7 +12,7 @@ defineOptions({
 })
 
 onMounted(() => {
-  getProducts()
+  getProductsOne()
 })
 
 const productsOne = ref([])
@@ -34,7 +34,7 @@ const listItems = [
   },
 ]
 
-const getProducts = () => {
+const getProductsOne = () => {
   axios.get('http://localhost:3000/goods_one')
   .then(res => {
     productsOne.value = res.data
@@ -80,6 +80,7 @@ const getProducts = () => {
   justify-content: center;
   column-gap: 36px;
   padding: 12px 20px;
+  margin-top: 20px;
   background-color: var(--color-white);
   border-radius: var(--border-radius-l);
 }

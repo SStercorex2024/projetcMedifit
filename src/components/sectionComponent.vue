@@ -20,6 +20,10 @@ const props = defineProps({
     type: Boolean,
     default: false
   },
+  isPaddingYBig: {
+    type: Boolean,
+    default: false
+  },
   sectionBgAccent: {
     type: Boolean,
     default: false
@@ -36,11 +40,11 @@ const props = defineProps({
 <template>
   <section
       :class="[props.sectionBgAccent && 'section-bg-accent',
-               props.isPaddingTopBig ? 'section-padding-top-big'
-                                   : 'section-padding-y-regular',
-               props.isPaddingBottomBig ? 'section-padding-bottom-big'
-                                   : 'section-padding-y-regular',
-               props.classSection,
+               props.isPaddingTopBig && 'section-padding-top-big',
+               props.isPaddingBottomBig && 'section-padding-bottom-big',
+               props.isPaddingYBig && 'section-padding-y-big',
+               (!props.isPaddingTopBig && !props.isPaddingBottomBig && !props.isPaddingYBig) && 'section-padding-y-regular',
+               props.classSection
                ]"
       :aria-labelledby="`#section-title-${props.classSection}`"
   >
@@ -65,11 +69,15 @@ const props = defineProps({
 }
 
 .section-padding-y-big {
-  padding-block: var(--section-padding-y);
+  padding-block: calc(var(--section-padding-y) * 2);
 }
 
 .section-padding-top-big {
   padding-block: calc(var(--section-padding-y) * 2) var(--section-padding-y);
+}
+
+.section-padding-bottom-big {
+  padding-block: var(--section-padding-y) calc(var(--section-padding-y) * 2);
 }
 
 .section-padding-y-regular {

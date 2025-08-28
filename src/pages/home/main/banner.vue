@@ -40,6 +40,7 @@ defineOptions({
 
 <style scoped>
 section {
+  margin-top: 107px;
   background-color: var(--color-border);
   padding-block: var(--section-padding-y) calc(var(--section-padding-y) * 2);
 }

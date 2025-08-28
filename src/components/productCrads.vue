@@ -38,7 +38,7 @@ const addProducts = (product) => {
         <img
             class="product__img"
             width="302"
-            :src="`/src/assets/images/goods-one/${product['image-name']}.png`"
+            :src="`/src/assets/images/goods/${product['image-name']}.jpg`"
             :alt="product.title"
         />
         <button @click="addProducts(product)" class="product__btn">
@@ -63,11 +63,12 @@ const addProducts = (product) => {
 
 <style scoped>
 .product__list {
-  width: 100%;
   display: flex;
+  flex-wrap: wrap;
+  gap: 30px 20px;
+  width: 100%;
   justify-content: center;
   align-items: center;
-  column-gap: 30px;
 }
 
 .product__item {
@@ -140,6 +141,13 @@ const addProducts = (product) => {
   border-radius: var(--border-radius-l);
 }
 
+.product__btn:focus-visible {
+  bottom: 30%;
+  user-select: initial;
+  pointer-events: initial;
+  opacity: 1;
+}
+
 .product__btn:hover {
   color: var(--color-accent);
 }
@@ -184,8 +192,6 @@ dd {
 
 @media (max-width: 1360px) {
   .product__list {
-    flex-wrap: wrap;
-    row-gap: 20px;
   }
 }
 
