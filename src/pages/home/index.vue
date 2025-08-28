@@ -3,6 +3,7 @@ import Banner from "@/pages/home/main/banner.vue";
 import Category from "@/pages/home/main/category.vue";
 import HealthProduct from "@/pages/home/main/healthProduct.vue";
 import Collection from "@/pages/home/main/collection.vue";
+import Clients from "@/pages/home/main/clients.vue";
 
 defineOptions({
   name: 'index'
@@ -15,6 +16,7 @@ defineOptions({
     <category/>
     <health-product/>
     <collection/>
+    <clients/>
   </main>
 </template>
 
