@@ -45,6 +45,7 @@ ul {
   align-items: center;
   margin-block: 0;
   column-gap: 120px;
+  margin-top: 40px;
   padding-left: 0;
 }
 

@@ -98,12 +98,13 @@ const props = defineProps({
 .section__title {
   font-size: 48px;
   text-align: center;
+  max-width: 890px;
 
   @media (max-width: 1000px) {
-    font-size: 32px;
+    font-size: 42px;
   }
   @media (max-width: 600px) {
-    font-size: 24px;
+    font-size: 32px;
   }
 }
 </style>

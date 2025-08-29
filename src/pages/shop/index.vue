@@ -1,12 +1,19 @@
 <script setup>
+import Review from "@/pages/shop/main/review.vue";
+
 defineOptions({
   name: 'Shop'
 })
 </script>
 
 <template>
-  SHOP PAGE
+  <main>
+    <review/>
+  </main>
 </template>
 
 <style scoped>
+main {
+  margin-top: 107px;
+}
 </style>

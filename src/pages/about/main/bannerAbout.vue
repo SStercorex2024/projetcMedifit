@@ -44,6 +44,7 @@ defineOptions({
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-inline: 20px;
   column-gap: 92px;
   background-color: var(--color-white);
   border-radius: var(--border-radius-l);
