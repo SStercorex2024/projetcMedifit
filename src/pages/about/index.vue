@@ -1,5 +1,6 @@
 <script setup>
 import Trust from "@/pages/about/main/trust.vue";
+import BannerAbout from "@/pages/about/main/bannerAbout.vue";
 
 defineOptions({
   name: 'About'
@@ -9,6 +10,7 @@ defineOptions({
 <template>
   <main>
     <trust/>
+    <banner-about/>
   </main>
 </template>
 

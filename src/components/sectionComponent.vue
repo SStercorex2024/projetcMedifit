@@ -87,6 +87,7 @@ const props = defineProps({
 .section__content {
   display: flex;
   flex-direction: column;
+  align-items: center;
   row-gap: 60px;
 
   @media (max-width: 1000px) {
