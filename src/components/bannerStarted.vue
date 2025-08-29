@@ -6,7 +6,7 @@ import img6 from '/src/assets/images/about/6.jpg?w=302&format=avif'
 import img7 from '/src/assets/images/about/7.jpg?w=302&format=avif'
 
 defineOptions({
-  name: 'BannerAbout'
+  name: 'BannerStarted'
 })
 
 </script>

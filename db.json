@@ -91,18 +91,28 @@
   ],
   "goods_active": [
     {
-      "id": "1",
-      "image-name": "1",
-      "is-new": true,
-      "title": "Microscope",
-      "price": "45.00"
+      "id": "3",
+      "discount": true,
+      "image-name": "3",
+      "title": "Vitamin serum",
+      "price": "20.00",
+      "lover-price": "30.00"
     },
     {
-      "id": "4",
-      "is-new": true,
-      "image-name": "4",
-      "title": "High protein",
-      "price": "50.00"
+      "id": "3",
+      "discount": true,
+      "image-name": "3",
+      "title": "Vitamin serum",
+      "price": "20.00",
+      "lover-price": "30.00"
+    },
+    {
+      "id": "3",
+      "discount": true,
+      "image-name": "3",
+      "title": "Vitamin serum",
+      "price": "20.00",
+      "lover-price": "30.00"
     }
   ],
   "person": [],
