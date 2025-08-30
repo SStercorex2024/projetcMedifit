@@ -89,32 +89,8 @@
       "price": "20.00"
     }
   ],
-  "goods_active": [
-    {
-      "id": "3",
-      "discount": true,
-      "image-name": "3",
-      "title": "Vitamin serum",
-      "price": "20.00",
-      "lover-price": "30.00"
-    },
-    {
-      "id": "3",
-      "discount": true,
-      "image-name": "3",
-      "title": "Vitamin serum",
-      "price": "20.00",
-      "lover-price": "30.00"
-    },
-    {
-      "id": "3",
-      "discount": true,
-      "image-name": "3",
-      "title": "Vitamin serum",
-      "price": "20.00",
-      "lover-price": "30.00"
-    }
+  "goods_active": [],
+  "person": [
   ],
-  "person": [],
   "person__email": []
 }

@@ -31,6 +31,10 @@ const props = defineProps({
   classSection: {
     type: String,
     required: true
+  },
+  isIconWithTitle: {
+    type: String,
+    default: false
   }
 })
 
@@ -53,10 +57,15 @@ const props = defineProps({
     </h1>
     <div class="container">
       <div class="section__content">
-        <h3 v-if="props.isTitle" class="section__title">{{
-            props.titleContent
-          }}
-        </h3>
+        <div :class="[isIconWithTitle && 'section__title-icon-wrapper']">
+          <h3 v-if="props.isTitle" class="section__title">{{
+              props.titleContent
+            }}
+          </h3>
+          <span v-if="isIconWithTitle">
+          <img alt="" :src="isIconWithTitle">
+        </span>
+        </div>
         <slot/>
       </div>
     </div>
@@ -82,6 +91,21 @@ const props = defineProps({
 
 .section-padding-y-regular {
   padding-block: var(--section-padding-y) calc(var(--section-padding-y) * 2);
+}
+
+.section__title-icon-wrapper {
+  display: flex;
+  column-gap: 10px;
+
+  span {
+    display: flex;
+    align-items: center;
+  }
+
+  img {
+    width: 55px;
+    height: 55px;
+  }
 }
 
 .section__content {

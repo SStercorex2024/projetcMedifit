@@ -116,7 +116,7 @@ const removeGoods = (product) => {
         <router-link
             @click="modalOpen = !modalOpen"
             class="modal-shop__checkout"
-            to="contact.index"
+            :to="{name: 'contact.index'}"
         >Checkout
           <BagShopping/>
         </router-link>
@@ -158,6 +158,9 @@ const removeGoods = (product) => {
               </button>
             </li>
           </ul>
+        </li>
+        <li v-if="activeGoods.length <= 0">
+          Now Empty
         </li>
       </ul>
     </div>
@@ -284,7 +287,7 @@ header {
 }
 
 .modal-shop {
-  width: 50vw;
+  width: 90vw;
   height: 80vh;
   display: flex;
   overflow-y: auto;
@@ -323,6 +326,12 @@ header {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  width: 100%;
+  min-height: 300px;
+  padding: 10px 20px;
+  border: 1px solid;
+  border-radius: 10px;
+
 
   ul {
     list-style: none;
@@ -334,6 +343,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 500px;
   border: 1px solid var(--color-text-muted);
   border-radius: var(--border-radius-m);
   padding: 10px 20px;
@@ -380,6 +390,17 @@ header {
 
 .modal-shop__checkout:hover {
   color: var(--color-accent);
+}
+
+@media (max-width: 789px) {
+
+  .modal-shop__item {
+    width: 330px;
+  }
+
+  .modal-shop__img {
+    width: 160px;
+  }
 }
 
 </style>
