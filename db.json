@@ -89,8 +89,23 @@
       "price": "20.00"
     }
   ],
-  "goods_active": [],
-  "person": [
+  "goods_active": [
+    {
+      "id": "2",
+      "image-name": "2",
+      "discount": true,
+      "title": "Pulse oximeter",
+      "price": "19.00",
+      "lover-price": "25.00"
+    },
+    {
+      "id": "4",
+      "is-new": true,
+      "image-name": "4",
+      "title": "High protein",
+      "price": "50.00"
+    }
   ],
+  "person": [],
   "person__email": []
 }

@@ -1,5 +1,6 @@
 <script setup>
 import ContactForm from "@/pages/contact/main/contactForm.vue";
+import Accordion from "@/pages/contact/main/accordion.vue";
 
 defineOptions({
   name: 'Contact'
@@ -9,6 +10,7 @@ defineOptions({
 <template>
   <main>
     <contact-form/>
+    <accordion/>
   </main>
 </template>
 
