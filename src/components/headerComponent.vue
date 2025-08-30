@@ -111,7 +111,20 @@ const removeGoods = (product) => {
       <div class="modal-shop__header">
         <h3>Your shopping cart</h3>
         <button @click.prevent="modalOpen = !modalOpen" class="modal__close">
-          X
+          <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-6"
+          >
+            <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6 18 18 6M6 6l12 12"
+            />
+          </svg>
         </button>
         <router-link
             @click="modalOpen = !modalOpen"
@@ -290,7 +303,6 @@ header {
   width: 90vw;
   height: 80vh;
   display: flex;
-  overflow-y: auto;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
@@ -309,11 +321,14 @@ header {
     font-size: 36px;
     margin: 0;
   }
+
+
 }
 
 .modal__close {
-  color: var(--color-text);
-  font-size: 48px;
+  order: 1;
+  width: 40px;
+  height: 40px;
 }
 
 .modal__close:hover {
@@ -325,6 +340,7 @@ header {
   gap: 20px;
   align-items: center;
   justify-content: center;
+  overflow-y: auto;
   flex-wrap: wrap;
   width: 100%;
   min-height: 300px;
@@ -393,6 +409,21 @@ header {
 }
 
 @media (max-width: 789px) {
+
+  .modal-shop__header {
+    flex-direction: column;
+
+    h3 {
+      font-size: 30px;
+    }
+
+    button {
+      order: -1;
+      width: 40px;
+      height: 40px;
+      margin-bottom: 10px;
+    }
+  }
 
   .modal-shop__item {
     width: 330px;
