@@ -1,6 +1,5 @@
 <script setup>
-import {onMounted, ref, watch} from "vue";
-import axios from "axios";
+import {inject, onMounted, ref, watch} from "vue";
 import SectionComponent from "@/components/sectionComponent.vue";
 import ProductCards from "@/components/productCrads.vue";
 import img from '/src/assets/images/collection-extra-bg.jpg?w=635&format=avif'
@@ -8,10 +7,7 @@ import img from '/src/assets/images/collection-extra-bg.jpg?w=635&format=avif'
 defineOptions({
   name: 'Collection'
 })
-onMounted(() => {
-  getProductsTwo()
-})
-
+const allData = inject('all-data')
 const inputVal = ref('')
 const errorEmail = ref('')
 const personEmail = ref({
@@ -19,12 +15,16 @@ const personEmail = ref({
 })
 let currentEmail = ref('')
 const productsTwo = ref([])
+const submittedEmails = ref([])
+
+onMounted(() => {
+  getProductsTwo()
+})
 
 const getProductsTwo = () => {
-  axios.get('http://localhost:3000/goods_two')
-  .then(res => {
-    productsTwo.value = res.data
-  })
+  if (allData.value && allData.value.goods_two) {
+    productsTwo.value = allData.value.goods_two
+  }
 }
 
 const addPersonEmail = (email) => {
@@ -34,23 +34,41 @@ const addPersonEmail = (email) => {
 
   personEmail.value.email = inputVal.value
 
-  axios.post('http://localhost:3000/person_email', personEmail)
+  submittedEmails.value.push({
+    id: Date.now().toString(),
+    email: personEmail.value.email,
+    timestamp: new Date().toISOString()
+  })
+
+  inputVal.value = ''
+  personEmail.value.email = ''
+
+  console.log('Email сохранен локально:', submittedEmails.value)
 }
 
 const validateEmail = (email) => {
   const allowedDomains = ["@gmail.com", "@yahoo.com"]
-  const currentDomian = email.split("@")[1]
+  const emailParts = email.split("@")
 
-  if (!allowedDomains.includes(currentDomian)) {
+  if (emailParts.length !== 2) {
+    errorEmail.value = 'Неверный формат email'
+    return false
+  }
+
+  const currentDomain = "@" + emailParts[1]
+
+  if (!allowedDomains.includes(currentDomain)) {
     errorEmail.value = 'Incorrect email, we accept only "@gmail.com" and "@yahoo.com"'
     return false
   }
   return true
 }
 
+const isDataLoaded = inject('is-data-loaded')
+
 watch(currentEmail, (newEmail, oldEmail) => {
   if (newEmail !== oldEmail) {
-    inputVal.value = currentEmail
+    inputVal.value = currentEmail.value
     errorEmail.value = ''
   }
 })
@@ -64,7 +82,9 @@ watch(currentEmail, (newEmail, oldEmail) => {
       :isTitle="true"
       :isPaddingYBig="true"
   >
-    <product-cards :products="productsTwo"/>
+    <div v-if="isDataLoaded">
+      <product-cards :products="productsTwo"/>
+    </div>
     <div class="collection__extra">
       <img
           class="collection__extra-img"
@@ -181,7 +201,7 @@ watch(currentEmail, (newEmail, oldEmail) => {
 .input__wrapper:before {
   position: absolute;
   content: '';
-  background-image: url("/src/assets/icons/letter.svg");
+  background-image: url("/icons/letter.svg");
   background-size: cover;
   background-position: center center;
   top: 50%;

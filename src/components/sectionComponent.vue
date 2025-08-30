@@ -34,7 +34,7 @@ const props = defineProps({
   },
   isIconWithTitle: {
     type: String,
-    default: false
+    default: ''
   }
 })
 
@@ -57,14 +57,13 @@ const props = defineProps({
     </h1>
     <div class="container">
       <div class="section__content">
-        <div :class="[isIconWithTitle && 'section__title-icon-wrapper']">
-          <h3 v-if="props.isTitle" class="section__title">{{
-              props.titleContent
-            }}
+        <div :class="[props.isIconWithTitle && 'section__title-icon-wrapper']">
+          <h3 v-if="props.isTitle" class="section__title">
+            {{ props.titleContent }}
           </h3>
-          <span v-if="isIconWithTitle">
-          <img alt="" :src="isIconWithTitle">
-        </span>
+          <span v-if="props.isIconWithTitle">
+            <img alt="" :src="props.isIconWithTitle"/>
+          </span>
         </div>
         <slot/>
       </div>

@@ -56,7 +56,7 @@ const handleToggle = (event, index) => {
           <summary class="accordion-summary">
             <span class="accordion__title">{{ item.title }}</span>
             <span class="accordion__icon"><img
-                src="/src/assets/icons/medical-plus.svg"
+                src="/icons/medical-plus.svg"
                 alt=""
             ></span>
           </summary>

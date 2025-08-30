@@ -95,7 +95,7 @@ defineOptions({
   right: 14px;
   width: 24px;
   height: 24px;
-  background-image: url("/src/assets/icons/link-external.svg");
+  background-image: url("/icons/link-external.svg");
   background-repeat: no-repeat;
   background-position: center center;
 }

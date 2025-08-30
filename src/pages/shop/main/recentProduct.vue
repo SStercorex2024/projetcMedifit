@@ -1,24 +1,24 @@
 <script setup>
 import SectionComponent from "@/components/sectionComponent.vue";
 import ProductCards from "@/components/productCrads.vue";
-import axios from "axios";
-import {onMounted, ref} from "vue";
+import {inject, onMounted, ref} from "vue";
 
 defineOptions({
   name: 'RecentProduct'
 })
 
+const isDataLoaded = inject('is-data-loaded')
+const allData = inject('all-data')
+const productsOne = ref([])
+
 onMounted(() => {
   getProductsOne()
 })
 
-const productsOne = ref([])
-
 const getProductsOne = () => {
-  axios.get('http://localhost:3000/goods_one')
-  .then(res => {
-    productsOne.value = res.data
-  })
+  if (allData.value && allData.value.goods_one) {
+    productsOne.value = allData.value.goods_one
+  }
 }
 </script>
 
@@ -28,7 +28,9 @@ const getProductsOne = () => {
       title-content="Recent Products"
       :is-title="true"
   >
-    <product-cards :products="productsOne"/>
+    <div v-if="isDataLoaded">
+      <product-cards :products="productsOne"/>
+    </div>
   </section-component>
 </template>
 

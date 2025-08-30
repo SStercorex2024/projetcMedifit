@@ -121,7 +121,7 @@ const reviews = [
   left: 26px;
   width: 24px;
   height: 24px;
-  background-image: url('/src/assets/icons/message-lines.svg');
+  background-image: url('/icons/message-lines.svg');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;

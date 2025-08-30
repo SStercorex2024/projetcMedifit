@@ -1,6 +1,5 @@
 <script setup>
-import {onMounted, ref} from "vue";
-import axios from "axios";
+import {inject, onMounted, ref} from "vue";
 import SectionComponent from "@/components/sectionComponent.vue";
 import ProductCards from "@/components/productCrads.vue";
 import ShieldCheck from "@/components/icons/shield-check.vue";
@@ -11,11 +10,9 @@ defineOptions({
   name: 'health-product'
 })
 
-onMounted(() => {
-  getProductsOne()
-})
-
+const allData = inject('all-data')
 const productsOne = ref([])
+
 const listItems = [
   {
     name: '30 Days warranty',
@@ -24,7 +21,7 @@ const listItems = [
   },
   {
     name: 'Exchange policy',
-    desc: 'You’re satisfied with your purchase',
+    desc: 'Youre satisfied with your purchase',
     icon: ArrowLeftRight,
   },
   {
@@ -34,13 +31,15 @@ const listItems = [
   },
 ]
 
-const getProductsOne = () => {
-  axios.get('http://localhost:3000/goods_one')
-  .then(res => {
-    productsOne.value = res.data
-  })
-}
+onMounted(() => {
+  getProductsOne()
+})
 
+const getProductsOne = () => {
+  if (allData.value && allData.value.goods_one) {
+    productsOne.value = allData.value.goods_one
+  }
+}
 </script>
 
 <template>
@@ -115,7 +114,7 @@ const getProductsOne = () => {
   bottom: 0;
   left: -5px;
   top: -5px;
-  background-image: url("../../../assets/icons/shield-bg.svg");
+  background-image: url("/icons/shield-bg.svg");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;

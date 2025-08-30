@@ -1,20 +1,35 @@
 <script setup>
+import {onMounted, provide, reactive, ref} from "vue"
 import CustomerLayout from "@/layouts/CustomerLayout.vue";
-import {onMounted, provide, reactive, watch} from "vue";
-import axios from "axios";
 
 const activeGoods = reactive([])
+const allData = ref({})
+const isDataLoaded = ref(false)
 
-onMounted(() => {
-  getActiveGods()
-})
+const loadInitialData = async () => {
+  try {
+    const response = await fetch('/data/db.json')
+    const data = await response.json()
+    allData.value = data
 
-const getActiveGods = () => {
-  axios.get('http://localhost:3000/goods_active')
-  .then(res => Object.assign(activeGoods, res.data))
+    if (Array.isArray(data.goods_active)) {
+      activeGoods.splice(0, activeGoods.length, ...data.goods_active)
+    }
+
+    isDataLoaded.value = true
+  } catch (error) {
+    console.error('Ошибка загрузки данных:', error)
+    isDataLoaded.value = true
+  }
 }
+
+onMounted(loadInitialData)
+
+provide('all-data', allData)
+provide('is-data-loaded', isDataLoaded)
 provide('active-goods', activeGoods)
 </script>
+
 
 <template>
   <customer-layout>

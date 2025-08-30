@@ -1,6 +1,10 @@
 <script setup>
 import {ref} from "vue";
 import SectionComponent from "@/components/sectionComponent.vue";
+import img1 from '@/assets/images/client/1.jpg?w=300&format=avif'
+import img2 from '@/assets/images/client/2.jpg?w=300&format=avif'
+import img3 from '@/assets/images/client/3.jpg?w=300&format=avif'
+import img4 from '@/assets/images/client/4.jpg?w=300&format=avif'
 
 defineOptions({
   name: 'Clients'
@@ -9,29 +13,28 @@ defineOptions({
 const cards = [
   {
     id: 1,
-    img: '1',
+    img: img1,
     name: 'James Wilson',
     position: 'Manager',
     content: "This online pharmacy exceeded my expectations. The variety of products is impressive, and the checkout process was simple and secure. My order came right on time, everything was neatly packed, and the quality of the items is excellent. I’ll definitely be coming back for future purchases."
   },
   {
     id: 2,
-    img: '2',
+    img: img3,
     name: 'Henry Adams',
     position: 'CEO',
     content: "I had a wonderful experience shopping at this online medical store. The website is easy to navigate, and I quickly found the products I was looking for. My order arrived sooner than expected, well-packaged, and exactly as described. I really appreciate the reliability and the professional service provided."
   },
   {
     id: 3,
-    img: '3',
-
+    img: img3,
     name: 'Ethan Harris',
     position: 'Business manager',
     content: "I’m so impressed with this online medical store. The product selection is extensive and the prices are great. I found everything i needed in one place. The ordering process was easy, delivery was prompt, and the items arrived in perfect condition. Plus, the customer service team was incredibly helpful."
   },
   {
     id: 4,
-    img: '4',
+    img: img4,
     name: 'Lily Baker',
     position: 'Product manager',
     content: "I’m very satisfied with my order from this online medical shop. The prices are affordable, the selection covers all my needs, and the site made it easy to compare options. Shipping was fast, and the products were delivered in perfect condition. Great overall experience with friendly customer support."
@@ -68,7 +71,7 @@ const selectCard = (card) => {
         >
           <img
               class="client__image"
-              :src="`/src/assets/images/client/${card.img}.jpg`"
+              :src="card.img"
               :alt="card.name"
               loading="lazy"
           >
@@ -117,7 +120,7 @@ const selectCard = (card) => {
   left: 25px;
   width: 76px;
   height: 55px;
-  background-image: url("/src/assets/icons/quot.svg");
+  background-image: url("/icons/quot.svg");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -193,6 +196,7 @@ dt {
     }
   }
 }
+
 @media (max-width: 620px) {
   .client__content {
     p {

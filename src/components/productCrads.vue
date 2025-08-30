@@ -1,6 +1,5 @@
 <script setup>
 import Cart from "@/components/icons/cart.vue";
-import axios from "axios";
 import {inject} from "vue";
 
 defineOptions({
@@ -15,10 +14,8 @@ const {products} = defineProps({
 const activeGoods = inject('active-goods')
 
 const addProducts = (product) => {
-  axios.post('http://localhost:3000/goods_active', product)
-  .then(() => activeGoods.push(product))
+  activeGoods.push(product)
 }
-
 </script>
 
 <template>
@@ -38,7 +35,7 @@ const addProducts = (product) => {
         <img
             class="product__img"
             width="302"
-            :src="`/src/assets/images/goods/${product['image-name']}.jpg`"
+            :src="`/goods/${product['image-name']}.jpg`"
             :alt="product.title"
         />
         <button @click="addProducts(product)" class="product__btn">

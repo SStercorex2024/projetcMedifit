@@ -1,7 +1,6 @@
 <script setup>
 import SectionComponent from "@/components/sectionComponent.vue";
 import {reactive, ref, watch} from "vue";
-import axios from "axios";
 
 defineOptions({
   name: 'ContactForm'
@@ -11,7 +10,6 @@ const formData = ref({
   name: '',
   email: '',
   phone: '',
-  message: ''
 })
 
 const formItems = [
@@ -19,7 +17,7 @@ const formItems = [
     label: 'Full name',
     for: 'name',
     model: 'name',
-    icon: '/src/assets/icons/user.svg',
+    icon: '/icons/user.svg',
     placeholder: 'John Doe',
     input: true
   },
@@ -27,7 +25,7 @@ const formItems = [
     label: 'Email address',
     for: 'email',
     model: 'email',
-    icon: '/src/assets/icons/envelope.svg',
+    icon: '/icons/envelope.svg',
     placeholder: 'JohnDoe@gmail.com',
     input: true
   },
@@ -35,15 +33,14 @@ const formItems = [
     label: 'Phone number',
     for: 'phone',
     model: 'phone',
-    icon: '/src/assets/icons/phone-second.svg',
+    icon: '/icons/phone-second.svg',
     placeholder: '+44 777 666 000',
     input: true
   },
   {
     label: 'Message',
     for: 'message',
-    model: 'message',
-    icon: '/src/assets/icons/pen-to-square.svg',
+    icon: '/icons/pen-to-square.svg',
     placeholder: 'Hello ...',
     textarea: true
   },
@@ -54,6 +51,8 @@ const errorsForm = reactive({
   email: null,
   phone: null,
 })
+
+const submittedForms = ref([])
 
 const addPerson = () => {
   if (!nameValidate(formData.value.name)) {
@@ -66,8 +65,19 @@ const addPerson = () => {
     return false
   }
 
-  axios.post('http://localhost:3000/person', formData.value)
-  .then(() => alert('SUCCESS ! ! !'))
+  submittedForms.value.push({
+    id: Date.now().toString(),
+    ...formData.value,
+    timestamp: new Date().toISOString()
+  })
+
+  alert('Great! We\'re on our way !')
+
+  formData.value = {
+    name: '',
+    email: '',
+    phone: '',
+  }
 }
 
 const nameValidate = (name) => {
@@ -81,7 +91,14 @@ const nameValidate = (name) => {
 
 const emailValidate = (email) => {
   const allowedDomains = ["gmail.com", "yahoo.com"]
-  const currentDomain = email.split("@")[1]
+  const emailParts = email.split("@")
+
+  if (emailParts.length !== 2) {
+    errorsForm.email = 'Invalid email format.'
+    return false
+  }
+
+  const currentDomain = emailParts[1]
 
   if (!allowedDomains.includes(currentDomain)) {
     errorsForm.email = 'Incorrect email, we accept only "@gmail.com" and "@yahoo.com".'
@@ -107,15 +124,16 @@ watch(() => formData.value.name, (newVal, oldVal) => {
     errorsForm.name = null
   }
 })
+
 watch(() => formData.value.email, (newVal, oldVal) => {
   if (newVal !== oldVal) {
     errorsForm.email = null
   }
 })
+
 watch(() => formData.value.phone, (newVal, oldVal) => {
   if (newVal !== oldVal) {
     formData.value.phone = newVal.replace(/\D/g, '')
-
     errorsForm.phone = null
   }
 })
@@ -126,7 +144,7 @@ watch(() => formData.value.phone, (newVal, oldVal) => {
       class-section="contactForm"
       title-content="Contact us"
       :is-title="true"
-      :is-icon-with-title="'/src/assets/icons/phone.svg'"
+      :is-icon-with-title="'/icons/phone.svg'"
   >
     <p class="contactForm__desc">
       Have questions or need support? Get in touch with our team – we're here to
@@ -153,7 +171,6 @@ watch(() => formData.value.phone, (newVal, oldVal) => {
               required
           >
           <textarea
-              v-model="formData[item.model]"
               :id="item.for"
               v-if="item.textarea"
               :placeholder="item.placeholder"
@@ -169,7 +186,7 @@ watch(() => formData.value.phone, (newVal, oldVal) => {
       <button class="form-button" @click.prevent="addPerson">
         Submit
         <span>
-          <img src="/src/assets/icons/hand-pointer.svg" alt="">
+          <img src="/icons/hand-pointer.svg" alt="">
         </span>
       </button>
     </form>
