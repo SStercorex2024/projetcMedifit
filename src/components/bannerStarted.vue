@@ -26,7 +26,8 @@ defineOptions({
           education
           is empowering, and health is a shared journey.
         </p>
-        <router-link class="started__link" to="contact.index">Get started
+        <router-link class="started__link" :to="{name : 'contact.index'}">Get
+          started
         </router-link>
       </div>
       <div class="started__images">
