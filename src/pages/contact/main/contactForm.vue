@@ -114,6 +114,8 @@ watch(() => formData.value.email, (newVal, oldVal) => {
 })
 watch(() => formData.value.phone, (newVal, oldVal) => {
   if (newVal !== oldVal) {
+    formData.value.phone = newVal.replace(/\D/g, '')
+
     errorsForm.phone = null
   }
 })
