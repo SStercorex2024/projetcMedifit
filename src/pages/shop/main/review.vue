@@ -130,7 +130,7 @@ const reviews = [
 .review__person {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   column-gap: 20px;
   margin-top: auto;
 }

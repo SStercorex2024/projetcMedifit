@@ -42,8 +42,6 @@ const addPersonEmail = (email) => {
 
   inputVal.value = ''
   personEmail.value.email = ''
-
-  console.log('Email сохранен локально:', submittedEmails.value)
 }
 
 const validateEmail = (email) => {
@@ -51,7 +49,7 @@ const validateEmail = (email) => {
   const emailParts = email.split("@")
 
   if (emailParts.length !== 2) {
-    errorEmail.value = 'Неверный формат email'
+    errorEmail.value = 'Incorrect email, we accept gmail.com and yahoo.com'
     return false
   }
 

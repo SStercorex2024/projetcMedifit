@@ -21,7 +21,7 @@ const listItems = [
   },
   {
     name: 'Exchange policy',
-    desc: 'Youre satisfied with your purchase',
+    desc: 'You`re satisfied with your purchase',
     icon: ArrowLeftRight,
   },
   {

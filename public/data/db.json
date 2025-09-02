@@ -89,7 +89,15 @@
       "price": "20.00"
     }
   ],
-  "goods_active": [],
+  "goods_active": [
+    {
+      "id": "1",
+      "image-name": "1",
+      "is-new": true,
+      "title": "Microscope",
+      "price": "45.00"
+    }
+  ],
   "person": [],
   "person__email": []
 }

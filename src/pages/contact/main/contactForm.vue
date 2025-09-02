@@ -94,7 +94,7 @@ const emailValidate = (email) => {
   const emailParts = email.split("@")
 
   if (emailParts.length !== 2) {
-    errorsForm.email = 'Invalid email format.'
+    errorsForm.email = 'Invalid email we accept only @gmail.com and yahoo.com'
     return false
   }
 

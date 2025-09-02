@@ -18,7 +18,6 @@ const loadInitialData = async () => {
 
     isDataLoaded.value = true
   } catch (error) {
-    console.error('Ошибка загрузки данных:', error)
     isDataLoaded.value = true
   }
 }

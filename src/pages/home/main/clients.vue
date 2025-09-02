@@ -20,7 +20,7 @@ const cards = [
   },
   {
     id: 2,
-    img: img3,
+    img: img2,
     name: 'Henry Adams',
     position: 'CEO',
     content: "I had a wonderful experience shopping at this online medical store. The website is easy to navigate, and I quickly found the products I was looking for. My order arrived sooner than expected, well-packaged, and exactly as described. I really appreciate the reliability and the professional service provided."
